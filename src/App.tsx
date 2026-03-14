@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { useTimer } from './useTimer';
 import TimerRing from './components/TimerRing';
 import SessionHistory from './components/SessionHistory';
+import SettingsPanel from './components/SettingsPanel';
 import './App.css';
 
 const modeLabel = {
@@ -17,9 +19,12 @@ function formatTime(seconds: number): string {
 
 export default function App() {
   const {
-    mode, timeLeft, isRunning, sessions, focusCount,
-    progress, switchMode, start, pause, reset, nextMode, clearSessions,
+    mode, timeLeft, isRunning, sessions, focusCount, pausedFocusSeconds,
+    settings, progress, switchMode, start, pause, reset, nextMode,
+    updateSettings, clearSessions,
   } = useTimer();
+
+  const [showSettings, setShowSettings] = useState(false);
 
   return (
     <div className="app">
@@ -81,11 +86,25 @@ export default function App() {
               {focusCount % 4}/4 until long break
             </span>
           </div>
+
+          {/* Settings toggle */}
+          <button
+            className={`settings-toggle ${showSettings ? 'open' : ''}`}
+            onClick={() => setShowSettings(s => !s)}
+            title="Timer settings"
+          >
+            ⚙ Settings
+          </button>
+
+          {showSettings && (
+            <SettingsPanel settings={settings} onChange={updateSettings} />
+          )}
         </div>
 
         <SessionHistory
           sessions={sessions}
           focusCount={focusCount}
+          pausedFocusSeconds={pausedFocusSeconds}
           onClear={clearSessions}
         />
       </main>

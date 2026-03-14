@@ -3,6 +3,7 @@ import type { Session } from '../types';
 interface Props {
   sessions: Session[];
   focusCount: number;
+  pausedFocusSeconds: number;
   onClear: () => void;
 }
 
@@ -28,10 +29,10 @@ function formatTime(iso: string): string {
   return new Date(iso).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
-export default function SessionHistory({ sessions, focusCount, onClear }: Props) {
+export default function SessionHistory({ sessions, focusCount, pausedFocusSeconds, onClear }: Props) {
   const totalFocusSeconds = sessions
     .filter(s => s.mode === 'focus')
-    .reduce((sum, s) => sum + s.duration, 0);
+    .reduce((sum, s) => sum + s.duration, 0) + pausedFocusSeconds;
 
   return (
     <div className="session-history">

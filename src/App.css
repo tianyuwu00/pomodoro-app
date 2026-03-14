@@ -185,6 +185,108 @@
   margin-left: 4px;
 }
 
+/* ─── Settings toggle ─────────────────────────── */
+.settings-toggle {
+  background: none;
+  border: 1px solid #2a2a38;
+  border-radius: 8px;
+  color: #666;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.settings-toggle:hover,
+.settings-toggle.open {
+  color: #c0c0d0;
+  border-color: #444;
+}
+
+/* ─── Settings panel ──────────────────────────── */
+.settings-panel {
+  background: #1a1a24;
+  border-radius: 12px;
+  padding: 16px 20px;
+  width: 100%;
+}
+
+.settings-title {
+  margin: 0 0 12px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #555;
+}
+
+.settings-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-label {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.settings-stepper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stepper-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #2a2a38;
+  border-radius: 6px;
+  background: #111118;
+  color: #aaa;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.stepper-btn:hover:not(:disabled) {
+  color: #e2e2e8;
+  border-color: #444;
+}
+
+.stepper-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.stepper-input {
+  width: 44px;
+  text-align: center;
+  background: #111118;
+  border: 1px solid #2a2a38;
+  border-radius: 6px;
+  color: #e2e2e8;
+  font-size: 0.9rem;
+  padding: 4px 2px;
+  /* hide native number spinners */
+  -moz-appearance: textfield;
+}
+
+.stepper-input::-webkit-outer-spin-button,
+.stepper-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* ─── Session history ─────────────────────────── */
 .session-history {
   flex: 1 1 300px;
