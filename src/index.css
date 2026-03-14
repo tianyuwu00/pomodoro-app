@@ -1,0 +1,22 @@
+:root {
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--sans);
+  font-size: 16px;
+  color-scheme: light dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0f0f13;
+  color: #e2e2e8;
+  min-height: 100svh;
+}
+
+#root {
+  min-height: 100svh;
+}
