@@ -1,73 +1,35 @@
-# React + TypeScript + Vite
+# Pomodoro Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean, focused Pomodoro timer web app built with React and TypeScript.
 
-Currently, two official plugins are available:
+## What is the Pomodoro Technique?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The Pomodoro Technique is a time management method where you alternate between focused work intervals and short breaks. After every 4 focus sessions, you earn a longer break.
 
-## React Compiler
+**Default intervals:**
+- Focus — 25 minutes
+- Short Break — 5 minutes
+- Long Break — 15 minutes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Animated circular progress ring that changes color by mode (red = focus, green = short break, blue = long break)
+- Start / Pause / Reset controls and a Skip button to jump to the next phase
+- Streak dots showing progress toward the next long break
+- Adjustable durations via a settings panel (1–90 min focus, 1–30 min short break, 1–60 min long break)
+- Session log tracking completed pomodoros, total focus time, and all sessions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Running locally
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then open `http://localhost:5173` in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Tech stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **React** — UI component library
+- **TypeScript** — typed JavaScript
+- **Vite** — fast dev server and build tool
